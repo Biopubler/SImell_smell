@@ -1,3 +1,9 @@
+#Förråd
+
+varukorg = []
+användare_förråd = []
+bibliotek_förråd = []
+
 # ------------------------------- Information --------------------------------- #
 
 
