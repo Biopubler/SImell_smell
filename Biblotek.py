@@ -1,26 +1,9 @@
 # ------------------------------- Information --------------------------------- #
 
 
-f = open("biblioteket.txt", "rt")
-data = f.read()
-data = data.splitlines()
-posts = []
-for d in data:
-    post = d.split(",")
-    posts.append(post)
-print(posts)
 
 #söka i datan
-search = input("Sök något:")
-for post in posts:
-    for p in post:
-        if search in p:
-            print("Hittade sökresultat:")
-            print("Författare:", post[1], ", Titel:", post[0])
-            if post[2] == "0":
-                print("Boken är utlånad")
-            else:
-                print("Boken är inte utlånad")
+
 """
 Titel: Biblioteket
 Författare:
@@ -53,6 +36,10 @@ class Bibliotek:
     modifiera katalogen. """
     def __init__(self, bookList):
         self.books = bookList
+        
+        
+    
+        
 
     # Sparar hela bibliotekskatalogen i en fil.
     def spara(self, filename):
@@ -61,6 +48,8 @@ class Bibliotek:
     # Söker på en titel.
     def hittaTitel(self, titel):
         return
+    
+
 
     # Söker på en författare.
     def hittaFörfattare(self, författare):
@@ -88,12 +77,28 @@ class Bibliotek:
 
 # ------------------------------ Huvudprogram --------------------------------- #
 def main():
+    mitt_bibliotek = Bibliotek(["Emil i Lönneberga","Barnen i Bullerbyn","A tale of two cities"])
+    
     menyVal = ""
 
     while menyVal != "q":
 
         print(
-        """
+"""
+                                   .--.                   .---.
+                               .---|__|           .-.     |~~~|
+                            .--|===|--|_          |_|     |~~~|--.--.
+                            |  |===|  |'\     .---!~|  .--|   |--|--|
+                            |%%|   |  |.'\    |===| |--|%%|   |  |  |
+                            |%%|   |  |\.'\   |   | |__|  |   |  |  |
+                            |B | I |B | \L \  |=I=|O|T=|E | K |E |T |
+                            |  |   |__|  \.'\ |   |_|__|  |~~~|__|__|
+                            |  |===|--|   \.'\|===|~|--|%%|~~~|--|--|
+                            ^--^---'--^    `-'`---^-^--^--^---'--'--'
+""")
+
+        print(
+  """
                                           --- MENY ---
                 Välkommen till biblioteks-simulatorn. Välj ett av alternativen nedan:
             1. Sök efter titel                                  2. Sök efter författare
@@ -104,10 +109,30 @@ def main():
         ---------------------------------------------------------------------------------------
         """)
 
-        menyVal = input("-> ")
+        menyVal = input("Sök -> ") 
+
+        #Hittade lösningen på problemet med output.
+        #Problemet var att när användaren skrev in Emil i Lönneberga så 
+        #fick det booksheet att skriva ut print("Är tillgänglig. Boken är skriven av Astrid Lindgren") 
+        #2 gånger.
+        #Problemet åtgärdades genom att lägga till:(or booksheet ==) Min logik var för språk driven.
+        
+
 
         if menyVal == "1":
-            pass
+            booksheet = input("Ange titeln som du vill söka efter: ") 
+        if booksheet == "Emil i Lönneberga" or booksheet == "emil i lönneberga":
+            print("Är tillgänglig. Boken är skriven av Astrid Lindgren")
+
+
+
+        if booksheet == "Barnen i Bullerbyn" or booksheet == "Barnen i bullerbyn":
+            print("Är tillgänglig. Boken är skriven av Astrid Lindgren")
+
+     #Försök att implementera en text fil i koden den här veckan samt 
+     #skapa koden som gör att vi kan få till en lista av alla böcker. 
+     #Rad 17 till 75 kommer troligen att ha mycket att göra med att få till det.
+
         elif menyVal == "2":
             pass
         elif menyVal == "3":
@@ -123,18 +148,6 @@ def main():
         elif menyVal == "8":
             pass
 
-print(
-"""
-                                   .--.                   .---.
-                               .---|__|           .-.     |~~~|
-                            .--|===|--|_          |_|     |~~~|--.--.
-                            |  |===|  |'\     .---!~|  .--|   |--|--|
-                            |%%|   |  |.'\    |===| |--|%%|   |  |  |
-                            |%%|   |  |\.'\   |   | |__|  |   |  |  |
-                            |B | I |B | \L \  |=I=|O|T=|E | K |E |T |
-                            |  |   |__|  \.'\ |   |_|__|  |~~~|__|__|
-                            |  |===|--|   \.'\|===|~|--|%%|~~~|--|--|
-                            ^--^---'--^    `-'`---^-^--^--^---'--'--'
-""")
+
 
 main() 
