@@ -150,6 +150,12 @@ def main():
      #Rad 17 till 75 kommer troligen att ha mycket att göra med att få till det. - Tor
 
         elif menyVal == "2":
+            print(
+            """
+                                --- 2. Sök efter författare ---
+
+        ------------------------------------------------------------------------------
+            """)
             pass
         elif menyVal == "3":
             pass
