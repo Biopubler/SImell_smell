@@ -174,7 +174,7 @@ def main():
             """)
             pass
         elif menyVal == "5":
-print(
+        print(
             """
                                 --- 5. Ta bort bok ---
 
