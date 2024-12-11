@@ -201,6 +201,10 @@ print(
 
         ------------------------------------------------------------------------------
             """)
+            bibliotek_förråd.sort()
+            användare_förråd.sort()
+            print(bibliotek_förråd)
+            print(användare_förråd)
             pass
 
 main()
